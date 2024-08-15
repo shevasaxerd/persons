@@ -1,6 +1,6 @@
-package classes;
+package models;
 
-enum Nation {
+public enum Nation {
     Russian,
     Belorussian,
     Indian

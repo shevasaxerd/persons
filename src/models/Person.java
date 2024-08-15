@@ -1,8 +1,8 @@
-package classes;
+package models;
 
 import java.util.ArrayList;
 
-class Person{
+public class Person {
     private String name;
     private int age;
     private String sex;
@@ -13,10 +13,10 @@ class Person{
 
 
 
-    Person(){
+    public Person(){
         children = new ArrayList<>();
     };
-    Person(String nameOfPerson, int ageOfPerson, String sexOfPerson, int heightOfPerson, Nation nationOfPerson, Person marriageOfPerson, ArrayList<Person> childrenOfPerson){
+   public Person(String nameOfPerson, int ageOfPerson, String sexOfPerson, int heightOfPerson, Nation nationOfPerson, Person marriageOfPerson, ArrayList<Person> childrenOfPerson){
         name = nameOfPerson;
         age = ageOfPerson;
         sex = sexOfPerson;
