@@ -1,6 +1,7 @@
 //TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
-import java.util.ArrayList;
+import classes.Nation;
+import classes.Person;
 
 public class Main {
     public static void main(String[] args) {
@@ -10,21 +11,24 @@ public class Main {
         oleg.setAge(23);
         oleg.setSex("male");
         oleg.setHeight(190);
-        oleg.setNation(Person.Nation.Russian);
+        oleg.setNation(Nation.Russian);
         System.out.println (oleg);
         Person andrey = new Person();
+        andrey.setName("Andrey");
         System.out.println (andrey);
-        Person roma = new Person("Roman", 23, "male", 184, Person.Nation.Belorussian);
+        Person roma = new Person("Roman", 23, "male", 184, Nation.Belorussian, null, null);
         System.out.println (roma);
-        Person vanya = new Person (roma, "Vanya");
+        Person vanya = new Person(roma);
+        vanya.setName("Vanya");
         System.out.println (vanya);
-        Person vova = new Person (andrey, "Andrey");
+        Person vova = new Person (andrey);
+        vova.setName("Vova");
         System.out.println (vova);
         oleg.getOlder();
         oleg.getOlder();
         oleg.getOlder();
         System.out.println (oleg);
-        Person zakhar = new Person("Zakhar", 2, "male", 194, Person.Nation.Indian);
+        Person zakhar = new Person("Zakhar", 2, "male", 194, Nation.Indian, null, null);
         System.out.println(zakhar);
         zakhar.getYonger();
         zakhar.getYonger();
@@ -45,10 +49,10 @@ public class Main {
         System.out.println(zakhar);
         oleg.bornChild("Masha", "female", 32);
         System.out.println(oleg);
-        System.out.println(oleg.children);
+        System.out.println(oleg.getChildren());
         oleg.bornChild("Nastya", "female", 41);
         System.out.println(oleg);
-        System.out.println(oleg.children);
+        System.out.println(oleg.getChildren());
 
 
     }

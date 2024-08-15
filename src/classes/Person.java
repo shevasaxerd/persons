@@ -1,3 +1,5 @@
+package classes;
+
 import java.util.ArrayList;
 
 class Person{
@@ -7,34 +9,31 @@ class Person{
     private int height;
     private Nation personNation;
     private Person marriage;
-    ArrayList<Person> children = new ArrayList<>();
-    enum Nation{
-        Russian,
-        Belorussian,
-        Indian
-    }
+    private ArrayList<Person> children = new ArrayList<>();
+
+
 
     Person(){
-        name = "Andrey";
-        age = 54;
-        sex = "female";
-        height = 138;
-        personNation = Nation.Indian;
+        children = new ArrayList<>();
     };
-    Person(String n, int a, String s, int h, Nation nation){
-        name = n;
-        age = a;
-        sex = s;
-        height = h;
-        personNation = nation;
+    Person(String nameOfPerson, int ageOfPerson, String sexOfPerson, int heightOfPerson, Nation nationOfPerson, Person marriageOfPerson, ArrayList<Person> childrenOfPerson){
+        name = nameOfPerson;
+        age = ageOfPerson;
+        sex = sexOfPerson;
+        height = heightOfPerson;
+        personNation = nationOfPerson;
+        marriage = marriageOfPerson;
+        children = childrenOfPerson;
     }
 
-    public Person(Person person, String name){
-        this.name = name;
+    public Person(Person person){
+        this.name = person.name;
         this.age = person.age;
         this.sex = person.sex;
         this.height = person.height;
         this.personNation = person.personNation;
+        this.marriage = person.marriage;
+        this.children = person.children;
     }
     public String getName(){
         return name;
@@ -66,6 +65,14 @@ class Person{
     public void setNation(Nation personNation){
         this.personNation = personNation;
     }
+    public Person getMarriage() {return marriage;}
+    public void setMarriage(Person marriage) {this.marriage = marriage;}
+    public ArrayList<Person> getChildren() {
+        return children;
+    }
+    public void setChildren(ArrayList<Person> children) {
+        this.children = children;
+    }
 
     public void getYonger(){
         if (age >= 1) {
@@ -77,8 +84,8 @@ class Person{
         age = age + 1;
     }
 
-    public void bornChild (String n, String s, int h){
-            Person child = new Person(n, 0, s, h, this.personNation);
+    public void bornChild (String nameOfChild, String sexOfChild, int heightOfChild){
+            Person child = new Person(nameOfChild, 0, sexOfChild, heightOfChild, this.personNation, null, null );
             this.children.addFirst(child);
     }
 
@@ -89,22 +96,22 @@ class Person{
 
     public String toString(){
         if (marriage != null) {
-        return "Person: "
+        return "classes.Person: "
                 + "Name - " + name + " ||| "
                 + "Age - " + age + " ||| "
                 + "Sex - " + sex + " ||| "
                 + "Height - " + height + " ||| "
-                + "Nation - " + personNation + " ||| "
+                + "classes.Nation - " + personNation + " ||| "
                 + "Married with - " + marriage.name + " ||| "
                         + "Children's - " + children + ";";
     }
     else {
-            return "Person: "
+            return "classes.Person: "
                     + "Name - " + name + " ||| "
                     + "Age - " + age + " ||| "
                     + "Sex - " + sex + " ||| "
                     + "Height - " + height + " ||| "
-                    + "Nation - " + personNation + " ||| "
+                    + "classes.Nation - " + personNation + " ||| "
                     + "Not married ||| "
                     + "Children's - " + children + ";";
         }
